@@ -16,9 +16,15 @@
     <div class="chartWrapper">
         <canvas id="wordCount" height="200" width="200"></canvas>
 
-        <button type="button" id="addWordCount">Add words</button>
-        
-        <input type="text" id="num">
+        <form id="form" >
+            <input type="text" placeholder="500" id="wordCountToAdd">
+
+    <button type="button" id="addWordCount" onclick="addWords();">Get New Word Count</button>
+          </form>
+          
+
+        <div id="message"></div>
+        </div>
     </div>
 
 

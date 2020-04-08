@@ -26,27 +26,33 @@ console.log("The current word count is "+wordCountArr[position]);
 //insert the new word count for this day and all subsequent
 
 //get number of words to add from text input element when button "addWordCount" is clicked
-var addWordCount=document.getElementById("addWordCount");
+//first get the button
+const addWordCount=document.getElementById("addWordCount");
 
-//this works fine
-console.log(addWordCount);
+//this works fine, the button is identified
+// console.log(addWordCount);
 
-addWordCount.addEventListener("click",addWords);
+
+addWordCount.addEventListener("click",addWords());
+
 
 //add word count to graph
-var addWords = function (){
+
+   function addWords(){
+        // Selecting the input element and get its value 
+        var num = document.getElementById("wordCountToAdd").value;
+        
+    console.log("Num value is "+num);
     
-    //this isn't working
-    console.log("addWords is running");
-    
-    //replace current values at [position] and beyond with num, which is today's count
+    //replace current data array values at [position] and beyond with num, which is today's count
         wordCountArr.splice(position,1,num);
         for (i=position+1; i<wordCountArr.length; i++){
         wordCountArr.splice(i,1,num);
-        console.log(wordCountArr);
+        
     }  
-}
+console.log(wordCountArr);
 
+}
 
 
 
@@ -96,8 +102,3 @@ var chart = new Chart(ctx, {
     ]
     }
 })
-    
-
-
-
-

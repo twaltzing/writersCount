@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Get Text Input Field Value in JavaScript</title>
+</head>
+<body>
+    <input type="text" placeholder="word count to add" id="wordCountToAdd">
+    <button type="button" onclick="addWords();">Get New Word Count</button>
+    
+    <script>
+        function addWords(){
+            // Selecting the input element and get its value 
+            var num = document.getElementById("wordCountToAdd").value;
+            
+            // Displaying the value
+            alert(num);
+        }
+    </script>
+</body>
+</html>
