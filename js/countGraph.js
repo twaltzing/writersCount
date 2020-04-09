@@ -39,8 +39,15 @@ addWordCount.addEventListener("click",addWords());
 //add word count to graph
 
    function addWords(){
-        // Selecting the input element and get its value 
-        var num = document.getElementById("wordCountToAdd").value;
+    // If I get the value from the text field using the code below, chart doesn't update.
+        // var num = document.getElementById("wordCountToAdd").value;
+        // console.log("Num is initially "+num);
+        // num=parseInt(num);
+        // console.log("After parseInt, num is "+num);
+//Now the array is correctly filled with numbers but the chart doesn't update.
+
+// if I just set num to a number here, it does update.
+         var num = 7000;
         
     console.log("Num value is "+num);
     
@@ -50,8 +57,8 @@ addWordCount.addEventListener("click",addWords());
         wordCountArr.splice(i,1,num);
         
     }  
-console.log(wordCountArr);
-
+console.log("These are the data points: "+wordCountArr);
+ 
 }
 
 
@@ -90,7 +97,7 @@ var chart = new Chart(ctx, {
             backgroundColor:spectrum,
             borderColor: spectrum,
             borderWidth: "1px",
-            data: wordCountArr,
+            data: wordCountArr
         }, {    
             label: 'Goals',
             data: goalCounts,
