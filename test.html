@@ -6,15 +6,26 @@
 </head>
 <body>
     <input type="text" placeholder="word count to add" id="wordCountToAdd">
-    <button type="button" onclick="addWords();">Get New Word Count</button>
+    <button type="button" onclick="addWords(wordCountArr);">Get New Word Count</button>
     
     <script>
-        function addWords(){
+
+var wordCountArr=[50000,1667,2800,2800,2800,2800,2800,2800,2800,2800,2800,2800,2800,2800,2800,2800,2800,2800,2800,2800,2800,2800,2800,2800,2800,2800,2800,2800,2800,2800,];
+
+
+    function addWords(arr){
             // Selecting the input element and get its value 
-            var num = document.getElementById("wordCountToAdd").value;
-            
-            // Displaying the value
-            alert(num);
+            console.log(arr);
+        var num = document.getElementById("wordCountToAdd").value;
+
+            console.log("Num from the text field is a "+typeof num+" variable.");
+
+        num2=parseInt(num);
+            console.log("Num2 after parseInt is a "+typeof num2+ " variable.");
+         
+        arr.splice(4,1,num2);
+            console.log(arr);
+
         }
     </script>
 </body>
