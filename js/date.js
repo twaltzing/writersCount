@@ -1,15 +1,32 @@
-StartDate = newDate("2020-04-09");
-EndDate= newDate("2020-04-30");
+// const picker = datepicker("datepicker");
 
-var getDateArray= function(start, end) {
-    var arr = new Array (),
-        dt = new Date(start);
 
-    while (dt<=end) {
-        arr.push(newDate(dt));
-        dt.setDate(dtae()+1);
+
+
+  thisDay=new Date();
+  thisWritingNo=thisDay.getDate();
+  console.log(thisWritingNo);
+    
+    var mon = 4;
+    var daysToWrite = [];
+    var xLabels=["Goal"];
+
+
+    for (i=1; i<31; i++)  {
+        today=new Date(2020,mon,i);
+
+        dayNo=today.getDate();
+        console.log(dayNo);
+        xLabels.push(dayNo);
+    }    
+
+    var display = document.getElementById("show");
+    console.log(display);
+
+function buttonClick(){
+    // const dateField = document.getElementById("datepicker").value;
+    // console.log(dateField);
+
+    
+    display.innerHTML="Today is Friday";
     }
-    return arr;
-    console.log(arr);
-    }
-

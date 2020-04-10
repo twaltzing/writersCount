@@ -19,11 +19,6 @@ if(localStorage.getItem("wordCountArr")) {
     dataArrayFromStorage=localStorage.getItem("wordCountArr"); //this isn't yet an array
     wordCountArr = JSON.parse(dataArrayFromStorage);
 
-    // and update the graph to show previous counts, but the graph doesn't exist yet so...
-        // countChart.data.datasets[0].data = wordCountArr;
-        // countChart.update();
-
-//NEED TO MOVE THIS TO A POSITION INSIDE THE CHART?
 
 //labels for the X axis: days
 const xLabels =['Goal',1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
@@ -31,31 +26,13 @@ const xLabels =['Goal',1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,
 
 // console.log("The original data array is "+wordCountArr);
 
-//find the first two identical values so as to know which one to increase (index of the second one)
-function findFirstTwo (arr){
-
-    for (i=0; i<arr.length; i++){
-        let position=i+1;
-        // console.log(i+1);
-        if (arr[i]===arr[position]){
-            return i;
-            }
-        }
-        
-    }
-
-
-
-
-// console.log("The current word count is "+wordCountArr[position]+" on day "+position);
-
 
 //get number of words to add from text input element when button "addWordCount" is clicked
 //first get the button
 const addWordCount=document.getElementById("addWordCount");
 //this works fine, the button is identified
 // console.log(addWordCount);
-// addWordCount.addEventListener("click",addWords());
+
 
 //pretty colors for the bars
 const spectrum=["255, 0, 0","255, 51, 0","255, 105, 0","255, 153, 0","255, 204, 0","255, 255, 0","204, 255, 0","153, 255, 0","105, 255, 0","51, 255, 0","0, 255, 0","0, 255, 51","0, 255, 105","0, 255, 153","0, 255, 204","0, 255, 0","0, 204, 51","0, 153, 105","0, 105, 153","0, 51, 204","0, 0, 255","51, 0, 255","105, 0, 255","153, 0, 255","204, 0, 255","255, 0, 255","255, 0, 204","255, 0, 153","255, 0, 105","255, 0, 51",];
@@ -120,7 +97,15 @@ var countChart = new Chart(ctx, {
 
 function addWords(arr){
 
-  position=findFirstTwo(arr);
+    var dateNoRaw = document.getElementById("datepicker").value;
+    console.log("The date field raw value is: "+dateNoRaw+" of type "+typeof dateNoRaw);
+
+index = dateNoRaw.length;
+console.log("The date array is this long: "+index);
+
+    var dateNo = dateNoRaw.slice(-2);
+    console.log("DateNo is "+dateNo+" of type "+ typeof dateNo);
+    position=parseInt(dateNo);
      
     console.log("Update will go to day "+position);
 var num = document.getElementById("wordCountToAdd").value;
@@ -139,20 +124,12 @@ wordCountArr = arr;
 console.log("Content of wordCountArr are now "+wordCountArr);
 
 localStorage.setItem("wordCountArr", JSON.stringify(wordCountArr));
-if(localStorage.getItem("wordCountArr")) {
-    console.log("There is something in local Storage FROM THE FUNCTION");
-    console.log("This is the array in local storage FROM THE FUNCTION: "+localStorage.getItem("wordCountArr"));}
+}
 
-// var dataArray = localStorage.getItem("wordCountArr");
-// console.log("This is taken out of localStorage: "+dataArray);
-
+function resetter(arr){
+    // localStorage.clear(arr);
+    // console.log(localStorage("wordCountArr"));
+    alert ("You Clicked Me!");
 }
 
 
-
-
-// localStorage.setItem("wordCountArr", JSON.stringify(wordCountArr));
-// if(localStorage.getItem("wordCountArr")) {
-//     console.log("There is something in local Storage");
-//     console.log("This is the array in local storage: "+localStorage.getItem("wordCountArr"));
-// }
